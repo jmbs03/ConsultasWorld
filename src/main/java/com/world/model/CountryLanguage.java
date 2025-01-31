@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class CountryLanguage {
 
     @EmbeddedId
-    CountryLanguageId id;
+    private CountryLanguageId id;
 
     @ManyToOne
     @MapsId("countryCode") // Mapea la clave compuesta con el campo countryCode
