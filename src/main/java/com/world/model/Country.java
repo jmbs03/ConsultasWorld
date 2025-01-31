@@ -3,6 +3,8 @@ package com.world.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Country {
@@ -51,6 +53,9 @@ public class Country {
 
     @Column(length = 2,nullable = false)
     String code2;
+
+    @OneToMany(mappedBy = "country")
+    private Set<CountryLanguage> languages = new HashSet<CountryLanguage>();
 
     public Country() {
     }
@@ -191,6 +196,14 @@ public class Country {
 
     public void setCode2(String code2) {
         this.code2 = code2;
+    }
+
+    public Set<CountryLanguage> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(Set<CountryLanguage> languages) {
+        this.languages = languages;
     }
 
     @Override
