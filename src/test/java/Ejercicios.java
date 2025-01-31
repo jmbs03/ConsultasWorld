@@ -31,7 +31,8 @@ public class Ejercicios {
         Session s = HibernateUtil.getSessionFactory().openSession();
 
         List<Object[]> listaNombres =
-                s.createQuery("SELECT c.name, c.continent FROM Country c ORDER BY c.continent ASC").list();
+                s.createQuery("SELECT c.name, c.continent FROM Country c ORDER BY c.continent ASC",
+                        Object[].class).getResultList();
 
         int i = 1;
         for (Object[] o: listaNombres) {
@@ -44,5 +45,5 @@ public class Ejercicios {
         s.close();
     }
 
-    
+
 }
